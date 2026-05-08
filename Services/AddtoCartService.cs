@@ -3,10 +3,10 @@ using e_commerceAPI.Models;
 
 namespace e_commerceAPI.Services
 {
-    public class CartService
+    public class AddtoCartService
     {
         private readonly AppDbContext context;
-        public CartService(AppDbContext _context)
+        public AddtoCartService(AppDbContext _context)
         {
             context = _context;
         }
@@ -17,16 +17,19 @@ namespace e_commerceAPI.Services
             if (product == null)
                 return ServiceResult.Fail("Product not found");
 
-            if (quantity <= 0 || quantity > product.Stock)
+            if (quantity <= 0)
                 return ServiceResult.Fail("Invalid quantity");
 
-            var cart = context.Carts.FirstOrDefault(c => c.SessionId == userId);
+            if (quantity > product.Stock)
+                return ServiceResult.Fail("Not enough stock");
+
+            var cart = context.Carts.FirstOrDefault(c => c.UserId == userId);
 
             if (cart == null)
             {
                 cart = new Cart
                 {
-                    SessionId = userId,
+                    UserId = userId,
                     CreatedAt = DateTime.Now,
                     CartItems = new List<CartItem>()
                 };
@@ -45,11 +48,14 @@ namespace e_commerceAPI.Services
                     CartId = cart.Id,
                     ProductId = productId,
                     Quantity = quantity,
-                    Price = product.Price
+                    UnitPrice = product.Price
                 });
             }
             else
             {
+                if (existingItem.Quantity + quantity > product.Stock)
+                    return ServiceResult.Fail("Not enough stock");
+
                 existingItem.Quantity += quantity;
             }
 
