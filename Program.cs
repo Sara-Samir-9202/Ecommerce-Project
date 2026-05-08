@@ -1,5 +1,6 @@
 
 using e_commerceAPI.Data;
+using e_commerceAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace e_commerceAPI
@@ -18,6 +19,7 @@ namespace e_commerceAPI
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("cs")));
+            builder.Services.AddScoped<CartService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

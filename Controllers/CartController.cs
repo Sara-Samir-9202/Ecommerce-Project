@@ -1,5 +1,6 @@
 ﻿using e_commerceAPI.Data;
 using e_commerceAPI.Models;
+using e_commerceAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,55 +11,21 @@ namespace e_commerceAPI.Controllers
     public class CartController : ControllerBase
     {
         private readonly AppDbContext context;
-        public CartController(AppDbContext _context)
+        private readonly CartService cartService;
+        public CartController(AppDbContext _context , CartService _cartService)
         {
             context = _context;
+            cartService = _cartService;
         }
         [HttpPost("Add")]
         public IActionResult AddToCart(string userId , int productId, int quantity)
         {
-            var cartuser = context.Carts.FirstOrDefault(u => u.SessionId == userId);
-            if (cartuser == null)
-            {
-                cartuser = new Cart
-                {
-                    SessionId = userId,
-                    CartItems = new List<CartItem>(),
-                    CreatedAt = DateTime.Now
-                };
-                context.Carts.Add(cartuser);
-                context.SaveChanges();
-            }
-            var product = context.Products.FirstOrDefault(p => p.Id == productId);
-            if (product == null)
-                return NotFound("Product not found");
-            if (quantity <= 0 || quantity > product.Stock)
-            {
-                return BadRequest("Invalid quantity.");
-            }
-            var existingCartItem = context.CartItems.FirstOrDefault(ci => ci.CartId == cartuser.Id && ci.ProductId == productId);
-            if (existingCartItem == null)
-            {
-                var cartItem = new CartItem
-                {
-                    CartId = cartuser.Id,
-                    ProductId = productId,
-                    Quantity = quantity,
-                    Price = product.Price
-                };
-                context.CartItems.Add(cartItem);
-            }
-            else
-            {
-                existingCartItem.Quantity += quantity;
-                context.CartItems.Update(existingCartItem);
-            }
-            product.Stock -= quantity;
+            var result = cartService.AddToCart(userId, productId, quantity);
 
-            context.Products.Update(product); 
+            if (!result.Success)
+                return BadRequest(result.Message);
 
-            context.SaveChanges();
-            return Ok($"Added {quantity} of {product.Title} to cart.");
+            return Ok(result.Message);
         }
     }
 }
