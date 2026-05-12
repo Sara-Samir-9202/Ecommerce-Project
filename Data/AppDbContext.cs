@@ -54,6 +54,13 @@ namespace e_commerceAPI.Data
                 .WithMany()
                 .HasForeignKey(n => n.UserId);
 
+            // Seller relationship with Product
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Seller)
+                .WithMany()
+                .HasForeignKey(p => p.SellerId)
+                .OnDelete(DeleteBehavior.SetNull);
+
 
 
             // Decimal Precision
