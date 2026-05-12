@@ -1,5 +1,5 @@
 ﻿using e_commerceAPI.Data;
-using e_commerceAPI.DTO;
+using e_commerceAPI.DTO.Order;
 using e_commerceAPI.Models;
 using Microsoft.EntityFrameworkCore;
 

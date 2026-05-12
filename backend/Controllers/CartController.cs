@@ -1,5 +1,5 @@
 ﻿using e_commerceAPI.Data;
-using e_commerceAPI.DTO;
+using e_commerceAPI.DTO.Cart;
 using e_commerceAPI.Models;
 using e_commerceAPI.Services;
 using Microsoft.AspNetCore.Http;
