@@ -1,0 +1,20 @@
+<section>
+  <div class="container">
+    <h1 class="font-black text-3xl text-center">
+      <i class="fa-solid fa-heart-circle-plus text-fuchsia-700 text-3xl"></i>
+      {{ "wishlist" | translate }}
+    </h1>
+    <div class="grid md:grid-cols-12 space-x-5">
+      @for (product of productWishlist ; track product.id) {
+      <div class="col-span-6">
+        <app-card [product]="product" [wish]="false">
+          <i
+            (click)="removeProductFromWidhlist(product.id)"
+            class="fa-regular fa-trash-can cursor-pointer text-2xl text-red-400"
+          ></i>
+        </app-card>
+      </div>
+      }
+    </div>
+  </div>
+</section>

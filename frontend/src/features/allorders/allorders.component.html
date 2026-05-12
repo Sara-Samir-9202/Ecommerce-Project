@@ -1,0 +1,45 @@
+<section class="my-20">
+  <div class="container">
+    <div class="text-center">
+      <span class="font-black text-3xl">{{ "order.dear" | translate }} </span>
+      <span class="text-fuchsia-600"> {{ userOrder.name }} </span>
+      <p>{{ "order.yourOrder" | translate }}</p>
+    </div>
+
+    @for (order of orders; track order.id) {
+    <div class="border rounded-lg mt-5 p-3 w-[90%] mx-auto md:w-auto">
+      <span class="text-sm"> {{ order.createdAt | date : "mediumDate" }} </span>
+      <div class="">
+        <div class="flex gap-x-2">
+          @for (item of order.cartItems ; track $index) {
+          <img
+            [src]="item.product.imageCover"
+            class="w-[70px] mt-1 col-span-1 border-gray-300 rounded-md border"
+            [alt]="item.product.title"
+          />
+          }
+        </div>
+
+        <div class="pt-3">
+          <p>
+            {{ "order.orderId" | translate }}
+            <span class="text-fuchsia-700"> {{ order.id }} </span>
+          </p>
+          <p class="py-3">
+            {{ "order.totlaOrderPrice" | translate }}
+            <span class="text-fuchsia-700">
+              {{ order.totalOrderPrice | currency : "GBP" }}
+            </span>
+          </p>
+          <p>
+            {{ "order.paymentMethodType" | translate }} :
+            <span class="text-fuchsia-700">
+              {{ order.paymentMethodType }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>

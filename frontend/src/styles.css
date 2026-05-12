@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+body {
+  font-family: "Asimovian", sans-serif;
+}
+
+.wave-footer {
+  background: #00000013; /* your green color */
+  padding: 80px 30px;
+  clip-path: ellipse(100% 80% at 50% 100%); /* creates wave */
+  color: #00000070;
+}
+
+@layer components {
+  .oval {
+    @apply w-[40px] h-[40px] rounded-full  bg-black flex justify-center items-center;
+  }
+
+  .h2-style {
+    @apply text-black my-2;
+  }
+
+  .h3-style {
+    @apply font-black text-3xl p-5 border-2 bg-black text-white rounded-full my-3 w-fit;
+  }
+
+  .h1-style {
+    @apply md:text-5xl  text-3xl md:font-black text-center my-15 text-gray-950;
+  }
+
+  .btn {
+    @apply cursor-pointer text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm md:w-full w-[90%] mx-auto block px-5 py-2.5;
+  }
+  .icon {
+    @apply size-[20px] text-white flex justify-center items-center bg-fuchsia-600 rounded-full px-4 absolute top-0 md:bottom-[100%] md:right-[50%] md:translate-x-[50%];
+  }
+  .contact-box {
+    @apply border-2 border-gray-100 rounded-lg text-center w-full my-5 md:text-start p-10;
+  }
+  .slider-slide {
+    @apply flex flex-col-reverse gap-5 lg:grid lg:grid-cols-12 space-x-10;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+}

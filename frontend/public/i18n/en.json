@@ -1,0 +1,163 @@
+{
+  "navbar": {
+    "shipshop": "ShipShop",
+    "home": "Home",
+    "explore": "Explore",
+    "categroy": "Categroies",
+    "brands": "Brand",
+    "products": "Products",
+    "change-password": "Change Password",
+    "about": "about",
+    "contact": "contact",
+    "signOut": "signOut"
+  },
+
+  "home": {
+    "main-slider": {
+      "white-colored": "White Colored",
+      "blause": "Blause",
+      "modern-t-shirt": "Modern T-Shirt Royalty",
+      "royalty": "Royalty",
+      "disco-jacket": "Disco Jacket ",
+      "reviews": "Reviews"
+    },
+
+    "static": {
+      "girl-clothes": "Girl Clothes",
+      "t-shirts": "T-Shirts",
+      "waterproof-jacket": "WaterProof Jacket",
+      "men-clothes": "Men Clothes"
+    },
+    "top-product": "EXPLORE TOP BEAUTY PRODUCTS",
+    "top-brands": "POPULAR BRANDS",
+    "categroy": {
+      "top-categroy": "EXPLORE TOP CATEGROIES",
+      "deals": "Deals",
+      "beauty": "Beauty &",
+      "personal": "Personal Use"
+    },
+    "lorem": "lorem ipsum dolor sit adipiscing elit. Ut, facilis?"
+  },
+
+  "footer": {
+    "shop": {
+      "title": "SHOP",
+      "products": "Products",
+      "brands": "Brands",
+      "categories": "Categories"
+    },
+    "help": {
+      "title": "HELP",
+      "contact": "Contact Us",
+      "faq": "FAQ",
+      "accessibility": "Accessibility",
+      "privacy": "Privacy Policy",
+      "terms": "Terms"
+    },
+    "about": {
+      "title": "ABOUT",
+      "careers": "Careers",
+      "press": "Press",
+      "join": "Join Our Team",
+      "contact": "Get In Touch",
+      "salary": "Our Salary",
+      "shipping": "Shipping",
+      "story": "Our Story"
+    },
+    "follow": "FOLLOW US",
+    "copyright": "@2025 Victorious. All rights reserved"
+  },
+
+  "our-categroy": "OUR CATEGROIES",
+  "our-brands": "OUR BRANDS",
+  "our-products": "OUR PRODUCTS",
+  "search": "Search",
+  "wishlist": "WishList",
+
+  "cart": {
+    "title": "My Cart",
+    "items": "items",
+    "estimatedTotal": "Estimated Total",
+    "shipping": "Shipping",
+    "discount": "Discount",
+    "tax": "Tax",
+    "checkout": "Checkout"
+  },
+
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "passsMessage": " Password must be at least 8 characters and include uppercase,  lowercase, and a number",
+    "signin": "SIGNIN",
+    "forgetPassword": "Forget Password",
+    "newInShipShop": "new In ShipShop",
+    "signup": "SIGNUP",
+    "name": "Name",
+    "phone": "Phone",
+    "phoneMessage": "Enter a valid Egyptian phone number<",
+    "rePassword": "rePassword",
+    "submit": "Submit",
+    "alreadyHasAccount": "  Already Has Account",
+    "login": "LOGIN",
+    "sendCode": "Send Code",
+    "resetCode": "ResetCode",
+    "verifyRestCode": "Verify Reset Code",
+    "resetPassword": "reset Password",
+    "currentPassword": "CurrentPassword",
+    "changePassowrd": "CHANGE PASSWORD"
+  },
+  "order": {
+    "dear": "Dear",
+    "yourOrder": "This Is Your Order :",
+    "orderId": "order ID",
+    "totlaOrderPrice": "Total Order Price",
+    "paymentMethodType": "PaymentMethodType"
+  },
+  "payment": {
+    "deliveryInfo": "Delivery Information",
+    "details": "Details",
+    "city": "City",
+    "paymentMethods": "Payment Methods",
+    "onlinePayment": " Online Payment",
+    "chacheOnDelivery": " Online Payment",
+    "total": "Total"
+  },
+
+  "aboutSection": {
+    "howItStarted": "How It Started",
+    "ourDream": "Our Dream Is",
+    "globalMarketing": "Global Marketing",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, veniam aperiam rerum maxime ad numquam ipsum distinctio illo quos error rem perferendis et, sint architecto. Nesciunt, assumenda libero. Minima quibusdam rerum, esse culpa molestias, nemo inventore excepturi optio, illo ut velit veritatis quos assumenda. Ipsam possimus ad aut nostrum! Reprehenderit.",
+    "stat1Text": "Lorem ipsum dolor sit amet.",
+    "stat2Text": "Project Challenge"
+  },
+
+  "contactSection": {
+    "title": "Contact Our Friendly Team",
+    "subtitle": "Let us know how we can help",
+
+    "sales": {
+      "title": "Chat to Sales",
+      "description": "Speak to our friendly team",
+      "email": "sales@untitledui.com"
+    },
+
+    "support": {
+      "title": "Chat to Support",
+      "description": "We are here to help.",
+      "email": "support@untitledui.com"
+    },
+
+    "visit": {
+      "title": "Visit Us",
+      "description": "Visit our office HQ.",
+      "link": "View on Google Map"
+    },
+
+    "call": {
+      "title": "Call Us",
+      "description": "Mon–Fri from 8am to 5pm",
+      "phone": "+1 (555) 000-0000"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+<section class="">
+  <div class="">
+    <div class="lg:grid lg:grid-cols-12 items-center gap-x-20">
+      <div class="lg:col-span-6">
+        <img
+          src="/auth5.jpg"
+          class="h-[500px] lg:h-screen w-full object-cover"
+          alt="authImage"
+        />
+      </div>
+
+      <form
+        class="mt-4 md:w-[90%] md:mx-auto lg:max-w-xl lg:col-span-6"
+        [formGroup]="signupForm"
+        (ngSubmit)="signup()"
+      >
+        <app-input
+          [control]="signupForm.get('name')"
+          [id]="'name'"
+          [type]="'text'"
+          [label]="'auth.name' | translate"
+        >
+        </app-input>
+
+        <app-input
+          [control]="signupForm.get('email')"
+          [id]="'email'"
+          [type]="'email'"
+          [label]="'auth.email' | translate"
+        >
+        </app-input>
+
+        <app-input
+          [control]="signupForm.get('password')"
+          [id]="'password'"
+          [label]="'auth.password' | translate"
+        >
+          <li>
+            {{ "auth.passsMessage" | translate }}
+          </li>
+        </app-input>
+
+        <app-input
+          [control]="signupForm.get('rePassword')"
+          [id]="'rePassword'"
+          [label]="'auth.rePassword' | translate"
+        >
+        </app-input>
+
+        <app-input
+          [control]="signupForm.get('phone')"
+          [id]="'phone'"
+          [type]="'tel'"
+          [label]="'auth.phone' | translate"
+        >
+          <li>{{ "auth.phoneMessage" | translate }}</li>
+        </app-input>
+
+        @if (errorMsg) {
+
+        <div
+          class="mt-5 flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:text-red-400 dark:border-red-800"
+          role="alert"
+        >
+          <svg
+            class="shrink-0 inline w-4 h-4 me-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+            />
+          </svg>
+          <span class="sr-only">Info</span>
+          <div>
+            <span class="font-medium"> {{ errorMsg | titlecase }} </span>
+          </div>
+        </div>
+        }
+
+        <button type="submit" class="btn">
+          {{ "auth.submit" | translate }} @if(callAPI) {
+          <i class="fas fa-spinner fa-spin text-white"></i>
+          }
+        </button>
+
+        <div class="text-center mt-5">
+          <p>
+            {{ "auth.alreadyHasAccount" | translate }}
+            <a
+              routerLink="/login"
+              class="text-blue-600 cursor-pointer underline"
+            >
+              {{ "auth.login" | translate }} ?
+            </a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

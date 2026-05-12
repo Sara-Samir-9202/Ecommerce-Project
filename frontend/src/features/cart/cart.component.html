@@ -1,0 +1,142 @@
+<section class="my-20">
+  <div class="lg:container">
+    <h1 class="font-black text-3xl text-center">
+      <i
+        class="fa-solid fa-cart-flatbed-suitcase text-fuchsia-700 text-3xl"
+      ></i>
+      {{ "cart.title" | translate }}
+      <span class="text-fuchsia-600 text-lg font-semibold">
+        {{ cartDetails.products.length }} {{ "cart.items" | translate }}
+      </span>
+    </h1>
+
+    <div class="lg:grid lg:grid-cols-12 gap-x-10 items-start">
+      <div class="lg:col-span-7 w-full">
+        @for (record of cartDetails.products; track $index) {
+        <div
+          class="lg:grid lg:grid-cols-12 my-10 lg:py-3 lg:gap-3 px-10 relative lg:border-t-2 border-b-2 border-gray-500 items-center"
+        >
+          <div class="lg:col-span-2 lg:block flex items-center justify-center">
+            <img
+              [src]="record.product.imageCover"
+              [alt]="record.product.title"
+              class="lg:w-full w-[200px]"
+            />
+          </div>
+
+          <div
+            class="lg:col-span-4 px-4 justify-center items-center lg:bg-transparent lg:border-none border bg-gray-100 my-5 flex translate-x-5 flex-col"
+          >
+            <div>
+              <img
+                [src]="record.product.brand.image"
+                class="lg:w-[60px] w-[100px]"
+                [alt]="record.product.brand.name"
+              />
+            </div>
+
+            <h2>{{ record.product.title }}</h2>
+
+            <div class="flex items-center gap-x-5 my-5">
+              <button
+                (click)="
+                  updateCartProductQuantity(
+                    record.product._id,
+                    record.count - 1
+                  )
+                "
+                class="lg:size-[50px] size-[30px] cursor-pointer rounded-full bg-fuchsia-700"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+              <p>{{ record.count }}</p>
+
+              <button
+                (click)="
+                  updateCartProductQuantity(record.product.id, record.count + 1)
+                "
+                class="lg:size-[50px] size-[30px] cursor-pointer rounded-full bg-fuchsia-700"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="w-[30%] inline-block items-center lg:col-span-2 lg:block">
+            <h3 class="font-bold">Each</h3>
+            <span class="text-fuchsia-950">
+              {{ record.price | currency : "GBP" }}
+            </span>
+          </div>
+
+          <div class="w-[30%] inline-block items-center lg:col-span-2 lg:block">
+            <h3 class="font-bold">Quantity</h3>
+            {{ record.count }}
+          </div>
+
+          <div
+            class="relative w-[30%] inline-block items-center lg:col-span-2 lg:block"
+          >
+            <h3 class="font-bold">Total</h3>
+            <span class="text-fuchsia-950">
+              {{ record.price * record.count | currency : "GBP" }}
+            </span>
+          </div>
+
+          <button
+            (click)="removeSpecificCartItem(record.product.id)"
+            class="lg:absolute w-full lg:w-auto cursor-pointer lg:right-0 lg:bottom-0 text-xl bg-red-950 px-5 py-1 mt-5 rounded-t-lg text-white"
+          >
+            Remove
+          </button>
+        </div>
+
+        }
+      </div>
+
+      <div class="lg:col-span-5 h-[300px] shadow-xl rounded-lg relative p-4">
+        <h3 class="font-bold text-2xl text-center">
+          {{ "cart.estimatedTotal" | translate }}
+          <span class="text-fuchsia-600">
+            {{ cartDetails.totalCartPrice | currency : "GBP" }}
+          </span>
+        </h3>
+
+        <div class="border-3 my-3 rounded-lg p-3">
+          <div class="flex justify-between mb-3">
+            <p>{{ "cart.shipping" | translate }}</p>
+            <span class="text-fuchsia-600">TBO</span>
+          </div>
+
+          <div class="flex justify-between mb-3">
+            <p>{{ "cart.discount" | translate }}</p>
+            <span class="text-fuchsia-600">-0$</span>
+          </div>
+
+          <div class="flex justify-between mb-3">
+            <p>{{ "cart.tax" | translate }}</p>
+            <span class="text-fuchsia-600">TBO</span>
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 left-1/2 -translate-x-[50%]">
+          <button
+            [routerLink]="['/payment', cartDetails._id]"
+            class="bg-fuchsia-900 py-4 px-20 cursor-pointer text-white"
+          >
+            <i class="fa-solid fa-lock"></i> {{ "cart.checkout" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    @if( cartDetails.products.length > 0 ) {
+    <button
+      (click)="clearUserCart()"
+      class="cursor-pointer bg-red-950 py-3 mt-10 rounded-lg text-white w-full"
+    >
+      <i class="fa-solid fa-trash-can"></i> clear Cart
+    </button>
+    }
+  </div>
+</section>

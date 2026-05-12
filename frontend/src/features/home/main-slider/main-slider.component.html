@@ -1,0 +1,132 @@
+<section class="my-10">
+  <swiper-container
+    class="mySwiper cursor-pointer py-10"
+    pagination="true"
+    pagination-dynamic-bullets="true"
+    lopp="true"
+    [dir]="dir"
+    autoplay-delay="2000"
+    autoplay-disable-on-interaction="false"
+  >
+    <swiper-slide class="flex justify-center">
+      <div class="slider-slide">
+        <div
+          class="col-span-6 flex gap-y-3 flex-col justify-center text-center md:text-start"
+        >
+          <div>
+            <h2 class="font-black md:text-3xl">
+              {{ "home.main-slider.white-colored" | translate }}
+            </h2>
+            <h2 class="font-black md:text-3xl">
+              {{ "home.main-slider.blause" | translate }}
+            </h2>
+          </div>
+
+          <div>
+            <del class="text-2xl md:font-medium"> 139.99$ </del>
+            <span class="text-2xl md:font-medium"> 130.00 $ </span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+
+            <span class="text-sm">
+              2 {{ "home.main-slider.reviews" | translate }}
+            </span>
+          </div>
+        </div>
+
+        <div class="col-span-6">
+          <img
+            src="/mainSlideerImages/m1.jpeg"
+            class="size-[330px] rounded-full"
+            alt="slide1"
+          />
+        </div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="flex justify-center">
+      <div class="slider-slide">
+        <div
+          class="col-span-6 flex gap-y-3 flex-col justify-center text-center md:text-start"
+        >
+          <div>
+            <h2 class="font-black md:text-3xl">
+              {{ "home.main-slider.modern-t-shirt" | translate }}
+            </h2>
+            <h2 class="font-black md:text-3xl">
+              {{ "home.main-slider.royalty" | translate }}
+            </h2>
+          </div>
+
+          <div>
+            <span class="text-2xl md:font-medium"> 59.59$ </span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+
+            <span class="text-sm">
+              21 {{ "home.main-slider.reviews" | translate }}</span
+            >
+          </div>
+        </div>
+
+        <div class="col-span-6">
+          <img
+            src="/mainSlideerImages/m3.jpg"
+            class="size-[330px] rounded-full"
+            alt="slide2"
+          />
+        </div>
+      </div>
+    </swiper-slide>
+
+    <swiper-slide class="flex justify-center">
+      <div class="slider-slide">
+        <div
+          class="col-span-6 flex gap-y-3 flex-col justify-center text-center md:text-start"
+        >
+          <div>
+            <h2 class="font-black md:text-3xl">
+              {{ "home.main-slider.disco-jacket" | translate }}
+            </h2>
+            <h2 class="font-black md:text-3xl">
+              {{ "home.main-slider.royalty" | translate }}
+            </h2>
+          </div>
+
+          <div>
+            <span class="text-2xl md:font-medium"> 320.59$ </span>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+            <i class="fa-solid fa-star text-yellow-300"></i>
+
+            <span class="text-sm">
+              4 {{ "home.main-slider.reviews" | translate }}</span
+            >
+          </div>
+        </div>
+
+        <div class="col-span-6">
+          <img
+            src="/mainSlideerImages/m2.webp"
+            class="size-[330px] rounded-full"
+            alt="slide3"
+          />
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</section>

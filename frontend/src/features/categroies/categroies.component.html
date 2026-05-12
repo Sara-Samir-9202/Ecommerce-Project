@@ -1,0 +1,28 @@
+<section class="my-20">
+  <div class="container">
+    <h1 class="h1-style">{{ "our-categroy" | translate }}</h1>
+
+    <div class="md:grid md:grid-cols-12 gap-y-10">
+      @for (categroy of categroiesList; track categroy._id) {
+      <div
+        class="md:col-span-6 md:overflow-hidden relative flex flex-col justify-center md:bg-transparent my-2 bg-gray-100 items-center group w-[90%] mx-auto rounded-2xl border-gray-700"
+      >
+        <div class="md:w-full md:border-3 rounded-xl p-8">
+          <img
+            [src]="categroy.image"
+            [alt]="categroy.name"
+            class="object-cover h-[500px]"
+          />
+        </div>
+
+        <div
+          class="md:w-full md:bg-gray-200/70 md:opacity-0 flex items-end justify-center md:items-center rounded-xl md:absolute md:top-0 md:bottom-0 md:group-hover:opacity-100 transition-all duration-200 cursor-pointer"
+        >
+          <h3 class="h3-style">{{ categroy.name }}</h3>
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>
+</section>

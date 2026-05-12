@@ -1,0 +1,135 @@
+<div class="bg-white shadow-lg">
+  <div>
+    <div class="relative">
+      <img
+        class="md:p-8 mx-auto rounded-t-lg md:h-[350px] h-[250px]"
+        [src]="product.imageCover"
+        [alt]="product.title"
+      />
+
+      @if (wish ) {
+      <div
+        class="group size-[50px] bg-gray-100 rounded-full flex justify-center items-center absolute bottom-2 right-2 cursor-pointer"
+      >
+        <i
+          (click)="addProductToWishlist(product.id)"
+          class="fa-solid group-hover:text-red-600 transition:all duration-100 text-gray-300 text-2xl fa-heart"
+        ></i>
+      </div>
+      }
+
+      <div class="absolute top-5 right-2">
+        <ng-content></ng-content>
+      </div>
+    </div>
+
+    <div class="px-5 py-2 pb-5 bg-gray-50 m-1">
+      <div
+        class="cursor-pointer"
+        [routerLink]="['/details', product.slug, product._id]"
+      >
+        <p class="text-sm">{{ product.category.name }}</p>
+
+        <div class="flex justify-between">
+          <h5 class="text-xl font-semibold tracking-tight text-gray-900">
+            {{ product.title | trem : 2 }}
+          </h5>
+          <div class="flex items-center space-x-1 rtl:space-x-reverse">
+            <svg
+              class="w-4 h-4 text-yellow-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+
+            <svg
+              class="w-4 h-4 text-yellow-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-gray-200 dark:text-gray-600"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-2.5 mb-5">
+          <div>
+            <h3>Colors</h3>
+            <ul class="flex space-x-2 my-2">
+              <li class="size-[30px] bg-red-950 rounded-full"></li>
+              <li class="size-[30px] bg-yellow-900 rounded-full"></li>
+              <li class="size-[30px] bg-green-900 rounded-full"></li>
+              <li class="size-[30px] bg-lime-950 rounded-full"></li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col">
+            <label for="size">Size</label>
+            <select
+              name="size"
+              id="size"
+              class="py-1 px-2 text-sm focus:border-black focus:ring-black"
+            >
+              <option value="">Small</option>
+              <option value="">Medium</option>
+              <option value="">Large</option>
+            </select>
+          </div>
+        </div>
+
+        <p>{{ product.description.split(" ", 10).join(" ") }}</p>
+      </div>
+
+      <div class="flex items-center justify-between my-4">
+        <div>
+          <span class="text-3xl block border-2 py-1 px-2 text-gray-900">{{
+            product.price | currency : "GBP"
+          }}</span>
+        </div>
+        <app-add-btn [productId]="product.id" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<section class="mt-30 py-10">
+  <div class="container">
+    <h1 class="font-black text-xl text-center lg:text-start lg:text-4xl">
+      {{ "home.categroy.top-categroy" | translate }}
+    </h1>
+
+    <div
+      class="grid justify-center items-center gap-y-6 grid-cols-12 my-10 cursor-pointer"
+    >
+      <div class="hidden lg:block col-span-2 text-center">
+        <div
+          class="size-[200px] font-bold text-2xl rounded-full bg-gray-400 text-center flex items-center justify-center"
+        >
+          <p>{{ "home.categroy.deals" | translate }}</p>
+        </div>
+        <h3 class="font-bold mt-3">
+          {{ "home.categroy.beauty" | translate }}<br />
+          {{ "home.categroy.personal" | translate }}
+        </h3>
+      </div>
+
+      @for (categroy of categroiesDataList.slice(0,5); track categroy._id ) {
+      <div
+        class="col-span-6 flex lg:flex-col flex-col-reverse items-center justify-center md:col-span-4 lg:col-span-2"
+      >
+        <div
+          class="size-[200px] bg-gray-400 flex justify-center items-center lg:rounded-full"
+        >
+          <img
+            [src]="categroy.image"
+            class="size-[200px] lg:size-[195px] block lg:rounded-full"
+            [alt]="categroy.name"
+          />
+        </div>
+        <h3 class="font-bold mt-3">{{ categroy.name }}</h3>
+      </div>
+
+      }
+    </div>
+  </div>
+</section>

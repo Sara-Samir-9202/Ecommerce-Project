@@ -1,0 +1,14 @@
+<section class="my-10">
+  <div class="container">
+    <h1 class="font-black md:text-4xl text-xl text-center md:text-start">
+      {{ "home.top-product" | translate }}
+    </h1>
+    <div class="my-3 md:grid md:grid-cols-12 md:gap-x-5 md:gap-y-8">
+      @for (product of productList.slice(0,3); track product._id) {
+      <div class="md:col-span-6 lg:col-span-4">
+        <app-card [product]="product" />
+      </div>
+      }
+    </div>
+  </div>
+</section>
